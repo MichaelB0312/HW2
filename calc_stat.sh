@@ -1,28 +1,34 @@
 #!/bin/bash
 
 #checking if the number of argument is exactly one
-if [ "$#" -ne 1 ]; then
+if [[ "$#" -ne 1 ]]; then
     echo wrong number of argument >&2
     exit
 fi
 
 #checking if the file exists
-if [[! -f $1.txt]]; then
+if [[ ! -f $1.txt ]]; then
     echo course not found >&2
     exit
 fi
 
 #checking if there is existing directory already and creat if not
-if [[ -e $1_stat]]; then
+if [[ -e $1_stat ]]; then
  rmdir $1_stat
 fi
 
 #delet the file if it's already exist
-if [[! -e $1_stat]]; then
+if [[ ! -e $1_stat ]]; then
  mkdir $1_stat
- fi
- 
- cat $1.txt|hist.c|histogram.txt
+ fi 
+gcc - g Wall mean.c - o prog.exe 
+gcc - g Wall min.c - o prog.exe 
+gcc - g Wall max.c - o prog.exe 
+gcc - g Wall median.c - o prog.exe 
+
+awk $1.txt > ./$1_stat/histogram.txt
+
+cat $1.txt|hist.c|histogram.txt
 
 $ cat > statistics.txt
 cat $1.txt|mean.c|statistics.txt
