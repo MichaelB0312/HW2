@@ -21,10 +21,10 @@ fi
 if [[ ! -e $1_stat ]]; then
  mkdir $1_stat
  fi 
-gcc - g Wall mean.c - o prog.exe 
-gcc - g Wall min.c - o prog.exe 
-gcc - g Wall max.c - o prog.exe 
-gcc - g Wall median.c - o prog.exe 
+gcc -g Wall mean.c - o prog1.exe 
+gcc -g Wall min.c - o prog2.exe 
+gcc -g Wall max.c - o prog3.exe 
+gcc -g Wall median.c - o prog4.exe 
 
 awk $1.txt > ./$1_stat/histogram.txt
 
@@ -42,7 +42,7 @@ num_of_lines=0;
 pass_percent=0;
 
 #calculate the percent of pass students
-for j in $(awk '{print $2;}' ./$1_stat/hist.txt); do
+for j in $(awk '{print $2;}' ./$1_stat/histogram.txt); do
    num_of_students=$(echo $num_of_students+$j| bc)
    ((num_of_lines++))
    if[[num_of_lines -gt 55]]; then
